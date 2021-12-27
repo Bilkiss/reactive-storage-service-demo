@@ -2,9 +2,24 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
 
+## Docker & vscode remote container setup
+
+This branch has been configured to use docker/vscode remote container. Ensure docker desktop is installed and running and install the extension Remote Containers (search for ms-vscode-remote.remote-containers) on your vscode. Followed by Remote-Container:Clone Repository into Remote Container on the command pallette.
+
+Once the container is created and ready, you can access the command line from the Terminal > New Terminal from the vscode menu.
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. 
+
+Use the URLs 
+
+/home
+/form
+/list
+/total
+
+To access the compoments (check app-routing module.ts)
 
 ## Code scaffolding
 
@@ -12,11 +27,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Running end-to-end tests
 
