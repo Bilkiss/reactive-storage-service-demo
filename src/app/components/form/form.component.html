@@ -2,15 +2,11 @@
     <div class="card-header"><i class="fa fa-plus text-success" aria-hidden="true"></i> New product</div>
     <div class="card-body">
         <div class="mb-3 row">
-            <label for="exampleDataList" class="col-sm-3 text-end col-form-label">Product</label>
+            <label for="productDataList" class="col-sm-3 text-end col-form-label">Product</label>
             <div class="col-sm-8">
-                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
-                <datalist id="datalistOptions">
-                  <option value="San Francisco">
-                  <option value="New York">
-                  <option value="Seattle">
-                  <option value="Los Angeles">
-                  <option value="Chicago">
+                <input class="form-control" (keyup)="onChangeProduct($event)" list="productOptions" id="productDataList" placeholder="Type to search...">
+                <datalist id="productOptions">
+                    <option *ngFor="let opt of productNames" value="{{opt}}"></option>
                 </datalist>
             </div>
         </div>
@@ -19,7 +15,7 @@
             <div class="col-sm-8">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-price"><i class="fa fa-dollar" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" id="inputPrice" placeholder="Price" aria-label="Price" aria-describedby="basic-price">
+                    <input type="text" [(ngModel)]="currentPrice" class="form-control" id="inputPrice" placeholder="Price" aria-label="Price" aria-describedby="basic-price">
                   </div>
             </div>
         </div>
