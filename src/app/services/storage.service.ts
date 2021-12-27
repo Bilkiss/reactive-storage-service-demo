@@ -48,10 +48,10 @@ export class StorageService {
     let val = JSON.stringify(value);
     localStorage.setItem(key, val);
     let storeDataKey = this.storeDataSubjects.get(key);
-    if (!this.storeDataSubjects.has(key)) {
+    if (!this.storeDataSubjects.has(key) || !storeDataKey) {
       this.storeDataSubjects.set(key, new BehaviorSubject<any>(val));
     } else {
-      storeDataKey ? storeDataKey.next(value) : null;
+      storeDataKey.next(value)
       // this.storeDataSubjects.get(key).next(value);
     }
   }
@@ -64,10 +64,10 @@ export class StorageService {
   remove(key: string): void {
     localStorage.removeItem(key);
     let storeDataKey = this.storeDataSubjects.get(key);
-    if (!this.storeDataSubjects.has(key)) {
+    if (!this.storeDataSubjects.has(key) || !storeDataKey) {
       this.storeDataSubjects.set(key, new BehaviorSubject<any>(null));
     } else {
-      storeDataKey ? storeDataKey.next(null) : null;
+      storeDataKey.next(null);
       // this.storeDataSubjects.get(key).next(null);
     }
 
