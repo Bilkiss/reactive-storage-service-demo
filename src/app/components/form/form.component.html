@@ -4,7 +4,7 @@
         <div class="mb-3 row">
             <label for="productDataList" class="col-sm-3 text-end col-form-label">Product</label>
             <div class="col-sm-8">
-                <input class="form-control" (keyup)="onChangeProduct($event)" list="productOptions" id="productDataList" placeholder="Type to search...">
+                <input class="form-control" (keyup)="onChangeProduct($event)" [(ngModel)]="currentProduct.name" list="productOptions" id="productDataList" placeholder="Type to search...">
                 <datalist id="productOptions">
                     <option *ngFor="let opt of productNames" value="{{opt}}"></option>
                 </datalist>
@@ -15,13 +15,13 @@
             <div class="col-sm-8">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-price"><i class="fa fa-dollar" aria-hidden="true"></i></span>
-                    <input type="text" [(ngModel)]="currentPrice" class="form-control" id="inputPrice" placeholder="Price" aria-label="Price" aria-describedby="basic-price">
+                    <input type="text" [(ngModel)]="currentProduct.price" class="form-control" id="inputPrice" placeholder="Price" aria-label="Price" aria-describedby="basic-price">
                   </div>
             </div>
         </div>
         <div class="mb-3 row">
             <div class="col-sm-8 offset-sm-3 text-end">
-                <button type="button" class="btn btn-success btn-sm"> 
+                <button type="button" class="btn btn-success btn-sm" (click)="addProduct()"> 
                     <i class="fa fa-paper-plane me-1" aria-hidden="true"></i>
                     Save
                 </button>

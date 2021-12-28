@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-form',
@@ -9,9 +10,15 @@ export class FormComponent implements OnInit {
 
   products: any[] = [];
   productNames:any = [];
-  currentPrice: any = 0;
+  currentProduct: any = {
+    name: '',
+    price: 0
+  };
+  storageProductList: any = [];
 
-  constructor() { }
+  constructor(
+    public storage: StorageService
+  ) { }
 
   ngOnInit(): void {
     this.getProducts();
@@ -36,13 +43,24 @@ export class FormComponent implements OnInit {
 
     this.products.map( prod => {
       if (Object.keys(prod)[0].includes(value)){
-        this.currentPrice = Object.values(prod)[0];
+        this.currentProduct.price = Object.values(prod)[0];
       };
     });
 
-    // this.currentPrice = this.products.filter(o => Object.keys(o).includes( value ) )[0][value];    
-    console.log('onChangeProduct currentPrice: ', this.currentPrice);
+    // this.currentProduct.price = this.products.filter(o => Object.keys(o).includes( value ) )[0][value];    
+    console.log('onChangeProduct currentProduct.price: ', this.currentProduct.price);
 
   }
+
+  addProduct(): void{
+    console.log('addProduct currentProduct: ', this.currentProduct);
+    this.storageProductList = this.storage.get('products');
+    if (!this.storageProductList) {
+      this.storageProductList = [];
+    }
+    this.storageProductList.push({...this.currentProduct});
+    this.storage.set('products', this.storageProductList);
+  }
+
 
 }
