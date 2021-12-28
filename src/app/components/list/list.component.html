@@ -1,1 +1,24 @@
-<p>list works!</p>
+<div class="card">
+    <div class="card-body">
+        <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col" class="col-2 text-center">Price (<i class="fa fa-dollar" aria-hidden="true"></i>)</th>
+                <th scope="col" class="text-end pe-5 col-2">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of productList$ | async">
+                <td>{{item?.name}}</td>
+                <td class="text-center">{{item?.price}}</td>
+                <td class="text-end pe-5">
+                    <button class="btn btn-danger btn-sm" (click)="removeStoreProduct(item.name)">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
