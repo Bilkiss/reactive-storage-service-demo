@@ -11,7 +11,7 @@
             <tbody>
               <tr *ngFor="let item of productList$ | async">
                 <td>{{item?.name}}</td>
-                <td class="text-center">{{item?.price}}</td>
+                <td class="text-center">{{item?.price | currency}}</td>
                 <td class="text-end pe-5">
                     <button class="btn btn-danger btn-sm" (click)="removeStoreProduct(item.name)">
                         <i class="fa fa-trash" aria-hidden="true"></i>
@@ -20,5 +20,11 @@
               </tr>
             </tbody>
           </table>
+          <div class="row g-0">
+            <div class="col-10 pe-5">
+               <app-total></app-total>
+            </div>
+          </div>
+         
     </div>
 </div>

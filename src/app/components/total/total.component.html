@@ -1,1 +1,20 @@
-<p>total works!</p>
+<div class="row g-0">
+    <div class="col">
+        <dl class="text-end">
+            <dt>Subtotal: </dt>
+            <dd>Discount (5%): </dd>
+            <dd>VAT (15%): </dd>
+            <dt class="fs-5">Total: </dt>
+        </dl>
+        
+    </div>
+    <div class="col-2">
+        <dl class="text-end pe-5">
+            <dt>{{displayProductData.subtotal | currency}}</dt>
+            <dd>{{displayProductData.discount | currency}}</dd>
+            <dd>{{displayProductData.vat | currency}}</dd>
+            <dt class="fs-5">{{displayProductData.total | currency}}</dt>
+        </dl>        
+    </div>
+</div>
+
