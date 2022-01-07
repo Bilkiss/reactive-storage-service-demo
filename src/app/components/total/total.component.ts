@@ -21,6 +21,7 @@ export class TotalComponent implements OnInit {
 
   ngOnInit(): void {
     this.storage.watch('products')?.subscribe( res => {
+      if (!res) return;
       // console.log('watch res: ', res);
       const prices = res.map( (x: any) => x.price);
 
