@@ -2,10 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
 
-This is a simple demo project to demonstrate usage of the reactive localStorage service we created in [this article].
+This is a simple demo project to demonstrate usage of the reactive localStorage service we created in [this article](https://medium.com/@kyushiro/building-a-reactive-storage-service-in-angular-bad412bcdce6).
+
 We have a live hosted version [here](https://reactive-storage-service-demo.herokuapp.com/).
 
-The accompanying tutorial for this project can also be found [here]
+The accompanying tutorial for this project can also be found [here](https://medium.com/@bilkiss.dulloo/how-to-use-our-reactive-storage-service-in-angular-8bb58989f49f)
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
